@@ -121,7 +121,7 @@ else
             isproxy=false
             for i in `seq 1 $number`;
             do
-                file="/root/9Hits/9HitsViewer_x64/sessions/156288217488$i.txt"
+                file="/root/9Hits/9HitsViewer_x64/sessions/1$i.txt"
 cat > $file <<EOFSS
 {
   "token": "$token",
