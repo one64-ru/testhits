@@ -14,12 +14,12 @@ else
     case $os in
         "1)")
             crontab /root/9Hits/crontab
-            echo "All right"
+            echo -e "\e[32m Successfully\e[0m"
             ;;
         "2)")
             crontab -r
             /root/9Hits/kill.sh
-            echo "All right"
+            echo -e "\e[32m Successfully\e[0m"
             ;;
         "3)")
             crontab -r
@@ -28,7 +28,7 @@ else
  token=$(whiptail --inputbox "Enter your TOKEN" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
             tokenstatus=$?
             if [ $tokenstatus = 0 ]; then
-                    echo "All right"
+                    echo -e "\e[32m Successfully\e[0m"
             else
                     echo "User selected Cancel"
                     exit
@@ -103,7 +103,7 @@ else
                     number=$(whiptail --inputbox "ENTER NUMBER OF SESSIONS" 8 78 --title "SESSIONS" 3>&1 1>&2 2>&3)
                     numberstatus=$?
                     if [ $numberstatus = 0 ]; then
-                        echo "All right"
+                        echo -e "\e[32m Successfully\e[0m"
                     else
                         echo "User selected Cancel"
                         exit
@@ -113,7 +113,7 @@ else
             cpumax=$(whiptail --inputbox "Enter max % of cpu you want set per page" 8 78 --title "Max Cpu" 3>&1 1>&2 2>&3)
             cpumaxstatus=$?
             if [ $cpumaxstatus = 0 ]; then
-                echo "All right"
+                echo -e "\e[32m Successfully\e[0m"
             else
                 echo "User selected Cancel"
                 exit
@@ -149,7 +149,7 @@ EOFSS
             crontab -r
             /root/9Hits/kill.sh
             rm -R /root/9Hits/
-            echo "All right"
+            echo -e "\e[32m Successfully\e[0m"
             ;;
         "5)")
             cronbta -r
@@ -159,7 +159,7 @@ EOFSS
             wget http://f.9hits.com/9hviewer/9h-patch-linux-x64.zip
             unzip 9h-patch-linux-x64.zip
             crontab /root/9Hits/crontab
-            echo "All right"
+            echo -e "\e[32m Successfully\e[0m"
             ;;
     esac
 fi
