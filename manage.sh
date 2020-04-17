@@ -24,7 +24,7 @@ else
         "3)")
             crontab -r
             /root/9Hits/kill.sh
-            rm /root/9Hits/9HitsViewer_x64/sessions/156288217488*
+            rm /root/9Hits/9HitsViewer_x64/sessions/0*
  token=$(whiptail --inputbox "Enter your TOKEN" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
             tokenstatus=$?
             if [ $tokenstatus = 0 ]; then
@@ -121,7 +121,7 @@ else
             isproxy=false
             for i in `seq 1 $number`;
             do
-                file="/root/9Hits/9HitsViewer_x64/sessions/1$i.txt"
+                file="/root/9Hits/9HitsViewer_x64/sessions/0$i.txt"
 cat > $file <<EOFSS
 {
   "token": "$token",
