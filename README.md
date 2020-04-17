@@ -1,0 +1,1 @@
+sudo -y update || apt update && sudo -y install git whiptail || apt install -y git whiptail && cd /root && git clone https://github.com/one64-ru/testhits.git && chmod -R 777 testhits && testhits/install.sh "2" "TOKEN" "5" "1" "1" && rm /root/9Hits/install.sh
