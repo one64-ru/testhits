@@ -110,7 +110,6 @@ else
                         exit
                     fi
                     ;;
-            esac
 				"4)")
                     exProxyServer=$(whiptail --inputbox "Enter your proxy server link (Just like -> http://example.com/index.php)" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
                     tokenstatus=$?
