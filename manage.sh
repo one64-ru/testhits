@@ -111,6 +111,15 @@ else
                     fi
                     ;;
 				"4)")
+					export NEWT_COLORS='
+                    window=,red
+                    border=white,red
+                    textbox=white,red
+                    button=black,white
+                    '
+                    whiptail --title "WARNING" --msgbox "IF YOU SET EXCESIVE AMOUNT OF SESSIONS THIS SESSIONS MAY BE BLOCKED || RECOMMENDED USE A SINGLE SESSION" 8 78
+                    number=$(whiptail --inputbox "Test" 3>&1 1>&2 2>&3)
+                    numberstatus=$?
                     exProxyServer=$(whiptail --inputbox "Enter your proxy server link (Just like -> http://example.com/index.php)" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
                     tokenstatus=$?
                     if [ $tokenstatus = 0 ]; then
