@@ -64,7 +64,8 @@ else
             option=$(whiptail --title "How much sessions you want" --menu "Choose an option" 16 100 9 \
             "1)" "Use one session"   \
             "2)" "Automatic max session based on system"   \
-            "3)" "Use number you want"  3>&2 2>&1 1>&3
+            "3)" "Use number you want"  3>&2 2>&1 1>&3	\
+			"4)" "Use external server"  3>&2 2>&1 1>&3
             )
             case $option in
                 "1)")
@@ -104,6 +105,32 @@ else
                     numberstatus=$?
                     if [ $numberstatus = 0 ]; then
                         echo -e "\e[32m Successfully\e[0m"
+                    else
+                        echo "User selected Cancel"
+                        exit
+                    fi
+                    ;;
+            esac
+				"4)")
+                    exProxyServer=$(whiptail --inputbox "Enter your proxy server link (Just like -> http://example.com/index.php)" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
+                    tokenstatus=$?
+                    if [ $tokenstatus = 0 ]; then
+                        echo "All right"
+                    else
+                        echo "User selected Cancel"
+                        exit
+                    fi
+                    export NEWT_COLORS='
+                    window=,red
+                    border=white,red
+                    textbox=white,red
+                    button=black,white
+                    '
+                    whiptail --title "WARNING" --msgbox "IF YOU SET EXCESIVE AMOUNT OF SESSIONS THIS SESSIONS MAY BE BLOCKED || RECOMMENDED USE A SINGLE SESSION" 8 78
+                    number=$(whiptail --inputbox "ENTER NUMBER OF SESSIONS" 8 78 --title "SESSIONS" 3>&1 1>&2 2>&3)
+                    numberstatus=$?
+                    if [ $numberstatus = 0 ]; then
+                        echo "All right"
                     else
                         echo "User selected Cancel"
                         exit
