@@ -267,7 +267,7 @@ $cronvar
 58 23 * * * /root/9Hits/reboot.sh
 EOFSS
     cd /root
-    mv 9Hits-AutoInstall/* /root/9Hits/
+    mv testhits/* /root/9Hits/
     cd /root/9Hits/
     crontab crontab
     chmod 777 -R /root/9Hits/
