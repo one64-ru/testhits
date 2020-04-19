@@ -14,7 +14,7 @@ else
     case $os in
         "1)")
             crontab /root/9Hits/crontab
-            echo -e "\e[32m Successfully\e[0m"
+            echo "All right"
             ;;
         "2)")
             crontab -r
@@ -28,7 +28,7 @@ else
  token=$(whiptail --inputbox "Enter your TOKEN" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
             tokenstatus=$?
             if [ $tokenstatus = 0 ]; then
-                    echo -e "\e[32m Successfully\e[0m"
+                    echo "All right"
             else
                     echo "User selected Cancel"
                     exit
@@ -64,8 +64,7 @@ else
             option=$(whiptail --title "How much sessions you want" --menu "Choose an option" 16 100 9 \
             "1)" "Use one session"   \
             "2)" "Automatic max session based on system"   \
-            "3)" "Use number you want"  3>&2 2>&1 1>&3	\
-			"4)" "Use external server"  3>&2 2>&1 1>&3
+            "3)" "Use number you want"  3>&2 2>&1 1>&3
             )
             case $option in
                 "1)")
@@ -104,40 +103,6 @@ else
                     number=$(whiptail --inputbox "ENTER NUMBER OF SESSIONS" 8 78 --title "SESSIONS" 3>&1 1>&2 2>&3)
                     numberstatus=$?
                     if [ $numberstatus = 0 ]; then
-                        echo -e "\e[32m Successfully\e[0m"
-                    else
-                        echo "User selected Cancel"
-                        exit
-                    fi
-                    ;;
-				"4)")
-					export NEWT_COLORS='
-                    window=,red
-                    border=white,red
-                    textbox=white,red
-                    button=black,white
-                    '
-                    whiptail --title "WARNING" --msgbox "IF YOU SET EXCESIVE AMOUNT OF SESSIONS THIS SESSIONS MAY BE BLOCKED || RECOMMENDED USE A SINGLE SESSION" 8 78
-                    number=$(whiptail --inputbox "Test" 3>&1 1>&2 2>&3)
-                    numberstatus=$?
-                    exProxyServer=$(whiptail --inputbox "Enter your proxy server link (Just like -> http://example.com/index.php)" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
-                    tokenstatus=$?
-                    if [ $tokenstatus = 0 ]; then
-                        echo "All right"
-                    else
-                        echo "User selected Cancel"
-                        exit
-                    fi
-                    export NEWT_COLORS='
-                    window=,red
-                    border=white,red
-                    textbox=white,red
-                    button=black,white
-                    '
-                    whiptail --title "WARNING" --msgbox "IF YOU SET EXCESIVE AMOUNT OF SESSIONS THIS SESSIONS MAY BE BLOCKED || RECOMMENDED USE A SINGLE SESSION" 8 78
-                    number=$(whiptail --inputbox "ENTER NUMBER OF SESSIONS" 8 78 --title "SESSIONS" 3>&1 1>&2 2>&3)
-                    numberstatus=$?
-                    if [ $numberstatus = 0 ]; then
                         echo "All right"
                     else
                         echo "User selected Cancel"
@@ -148,7 +113,7 @@ else
             cpumax=$(whiptail --inputbox "Enter max % of cpu you want set per page" 8 78 --title "Max Cpu" 3>&1 1>&2 2>&3)
             cpumaxstatus=$?
             if [ $cpumaxstatus = 0 ]; then
-                echo -e "\e[32m Successfully\e[0m"
+                echo "All right"
             else
                 echo "User selected Cancel"
                 exit
@@ -184,17 +149,17 @@ EOFSS
             crontab -r
             /root/9Hits/kill.sh
             rm -R /root/9Hits/
-            echo -e "\e[32m Successfully\e[0m"
+            echo "All right"
             ;;
         "5)")
-            cronbta -r
+            crontab -r
             /root/9Hits/kill.sh
             cd /root/9Hits/9HitsViewer_x64
             rm 9hbrowser 9hmultiss 9hviewer
             wget http://f.9hits.com/9hviewer/9h-patch-linux-x64.zip
             unzip 9h-patch-linux-x64.zip
             crontab /root/9Hits/crontab
-            echo -e "\e[32m Successfully\e[0m"
+            echo "All right"
             ;;
     esac
 fi

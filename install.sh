@@ -64,7 +64,7 @@ else
             token=$(whiptail --inputbox "Enter your TOKEN" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
             tokenstatus=$?
             if [ $tokenstatus = 0 ]; then
-                    echo "All right"
+                    echo -e "\e[32m Successfully\e[0m"
             else
                     echo "User selected Cancel"
                     exit
@@ -140,7 +140,7 @@ else
                     number=$(whiptail --inputbox "ENTER NUMBER OF SESSIONS" 8 78 --title "SESSIONS" 3>&1 1>&2 2>&3)
                     numberstatus=$?
                     if [ $numberstatus = 0 ]; then
-                        echo "All right"
+                        echo -e "\e[32m Successfully\e[0m"
                     else
                         echo "User selected Cancel"
                         exit
@@ -150,7 +150,7 @@ else
                     exProxyServer=$(whiptail --inputbox "Enter your proxy server link (Just like -> http://example.com/index.php)" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
                     tokenstatus=$?
                     if [ $tokenstatus = 0 ]; then
-                        echo "All right"
+                        echo -e "\e[32m Successfully\e[0m"
                     else
                         echo "User selected Cancel"
                         exit
@@ -165,7 +165,7 @@ else
                     number=$(whiptail --inputbox "ENTER NUMBER OF SESSIONS" 8 78 --title "SESSIONS" 3>&1 1>&2 2>&3)
                     numberstatus=$?
                     if [ $numberstatus = 0 ]; then
-                        echo "All right"
+                        echo -e "\e[32m Successfully\e[0m"
                     else
                         echo "User selected Cancel"
                         exit
@@ -175,7 +175,7 @@ else
             cpumax=$(whiptail --inputbox "Enter max % of cpu you want set per page" 8 78 --title "Max Cpu" 3>&1 1>&2 2>&3)
             cpumaxstatus=$?
             if [ $cpumaxstatus = 0 ]; then
-                echo "All right"
+                echo -e "\e[32m Successfully\e[0m"
             else
                 echo "User selected Cancel"
                 exit
@@ -242,7 +242,7 @@ else
     isproxy=false
     for i in `seq 1 $number`;
     do
-        file="/root/9Hits/9HitsViewer_x64/sessions/156288217488$i.txt"
+        file="/root/9Hits/9HitsViewer_x64/sessions/0$i.txt"
 cat > $file <<EOFSS
 {
   "token": "$token",
@@ -268,6 +268,7 @@ $cronvar
 EOFSS
     cd /root
     mv testhits/* /root/9Hits/
+    rm -r testhits/
     cd /root/9Hits/
     crontab crontab
     chmod 777 -R /root/9Hits/
